@@ -3,11 +3,11 @@
     "pins": [
       {
         "package": "ApiCore",
-        "repositoryURL": "https://github.com/LiveUI/ApiCore.git",
+        "repositoryURL": "https://github.com/JulienBaj/ApiCore",
         "state": {
           "branch": null,
           "revision": "e656a1143900a174039e2ecae2e2db96471b72dc",
-          "version": "1.0_RC8"
+          "version": "1.0.0"
         }
       },
       {
