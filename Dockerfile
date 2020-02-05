@@ -1,4 +1,4 @@
-FROM einstore-core:0.1.1
+FROM einstore/einstore-core
 
 RUN chmod -R 1000 /app
 
