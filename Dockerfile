@@ -11,6 +11,8 @@ RUN swift build --configuration ${CONFIGURATION} --product EinstoreRun
 
 FROM einstore/einstore-base:2.0
 
+USER 1000
+
 ARG CONFIGURATION="release"
 
 WORKDIR /app
