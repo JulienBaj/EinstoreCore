@@ -1,7 +1,20 @@
-FROM einstore/einstore-core
+FROM einstore/einstore-base:2.0 as builder
 
-RUN chown -R 1000 /app
+WORKDIR /app
+COPY . /app
 
-RUN chmod -R 755 /app
+ARG CONFIGURATION="release"
 
-USER 1000
+RUN swift build --configuration ${CONFIGURATION} --product EinstoreRun
+
+# ------------------------------------------------------------------------------
+
+FROM einstore/einstore-base:2.0
+
+ARG CONFIGURATION="release"
+
+WORKDIR /app
+COPY --from=builder /app/.build/${CONFIGURATION}/EinstoreRun /app
+
+ENTRYPOINT ["/app/EinstoreRun"]
+CMD ["serve", "--hostname", "0.0.0.0", "--port", "8080"]
