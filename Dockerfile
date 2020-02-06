@@ -1,1 +1,1 @@
-FROM einstore/einstorecore
+FROM einstore/einstorecore:latest
